@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSIS - Organisasi Siswa Intra Sekolah SMKS Shalatiyah Bitin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <i class="fas fa-graduation-cap logo-placeholder" title="Logo Sekolah Kiri"></i>
+        </div>
+        
+        <h1>ORGANISASI SISWA INTRA SEKOLAH (OSIS)</h1>
+        
+        <div class="logo-container">
+            <i class="fas fa-certificate logo-placeholder" title="Logo OSIS Kanan"></i>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <button class="nav-button active" onclick="openTab('dashboard', this)">
+            <i class="fas fa-chart-line"></i> Dashboard Kegiatan
+        </button>
+        <button class="nav-button" onclick="openTab('pengetahuan', this)">
+            <i class="fas fa-book"></i> Program Kerja
+        </button>
+        <button class="nav-button" onclick="openTab('struktur', this)">
+            <i class="fas fa-sitemap"></i> Struktur & Anggota
+        </button>
+        <button class="nav-button" onclick="openTab('dokumentasi', this)">
+            <i class="fas fa-camera"></i> Dokumentasi
+        </button>
+        <button class="nav-button" onclick="openTab('kontak', this)">
+            <i class="fas fa-headset"></i> Layanan & Kontak
+        </button>
+    </nav>
+
+    <section id="dashboard" class="content-section active">
+        <h2>Dashboard Kegiatan & Statistik Singkat</h2>
+        <p style="text-align: center; font-size: 1.1em; color: var(--text-color);">**Klik pada setiap kartu statistik untuk melihat detail daftar secara interaktif.**</p>
+
+        <div class="dashboard-grid">
+            
+            <div class="dashboard-card" onclick="openModalWithAnimation('all_members')">
+                <div class="dashboard-icon"><i class="fas fa-users"></i></div>
+                <div class="dashboard-value" id="anggotaCount">Loading...</div>
+                <div class="dashboard-label">Total Anggota OSIS Aktif (Semua)</div>
+            </div>
+            
+            <div class="dashboard-card" onclick="openModalWithAnimation('inti_dan_ketua')">
+                <div class="dashboard-icon"><i class="fas fa-crown"></i></div>
+                <div class="dashboard-value" id="intiCount">Loading...</div>
+                <div class="dashboard-label">Pengurus Inti & Kepala Departemen</div>
+            </div>
+            
+            <div class="dashboard-card" onclick="openModalWithAnimation('department_names')">
+                <div class="dashboard-icon"><i class="fas fa-building"></i></div>
+                <div class="dashboard-value" id="deptCount">0</div>
+                <div class="dashboard-label">Total Departemen/Bidang</div>
+            </div>
+            
+            <div class="dashboard-card">
+                <div class="dashboard-icon"><i class="fas fa-calendar-check"></i></div>
+                <div class="dashboard-value">12+</div>
+                <div class="dashboard-label">Program Kerja Utama</div>
+            </div>
+        </div>
+
+        <h3>Kepala Sekolah & Pembina OSIS</h3>
+        <p style="text-align: center; font-style: italic;">Kepala Sekolah: **Ahmad Auria, S. Ag.**</p>
+        <p style="text-align: center; font-style: italic;">Pembina OSIS: **Pahriadi, S. Pd. I**</p>
+        
+        <h3>Agenda Penting Mendatang</h3>
+        <div class="dashboard-agenda">
+            <ul class="agenda-list">
+                <li class="agenda-item">
+                    <span><strong>15 November 2025:</strong> Rapat Evaluasi Proker Bulanan</span>
+                    <i class="fas fa-clock" style="color: red;"></i>
+                </li>
+                 <li class="agenda-item">
+                    <span><strong>25 November 2025:</strong> Sosialisasi Anti-Bullying (Kesiswaan)</span>
+                    <i class="fas fa-user-shield" style="color: var(--primary-color);"></i>
+                </li>
+                 <li class="agenda-item">
+                    <span><strong>10 Desember 2025:</strong> Lomba Futsal Antar Kelas (Olahraga)</span>
+                    <i class="fas fa-futbol" style="color: green;"></i>
+                </li>
+            </ul>
+        </div>
+    </section>
+    
+    <section id="pengetahuan" class="content-section">
+        <h2>Tentang OSIS & Program Kerja (Proker)</h2>
+        <p>Organisasi Siswa Intra Sekolah (OSIS) adalah satu-satunya wadah organisasi siswa yang sah di sekolah. OSIS berfungsi sebagai sarana untuk mencapai tujuan pembinaan dan pengembangan kesiswaan. Tujuan utamanya adalah membina siswa-siswi menjadi manusia beriman dan bertaqwa, berakhlak mulia, cerdas, berdisiplin, serta bertanggung jawab.</p>
+        <h3>Program Kerja Utama Setiap Departemen (Klik untuk Detail)</h3>
+        
+        <div class="structure-grid">
+            <div class="structure-card" onclick="openProkerModal('kesiswaan')">
+                <div class="card-icon"><i class="fas fa-user-friends"></i></div><div class="card-title">Kesiswaan</div>
+                <p>Mengelola disiplin siswa dan administrasi upacara.</p>
+                <div class="card-subtitle">Klik untuk lihat Proker & Indikator</div>
+            </div>
+            
+            <div class="structure-card" onclick="openProkerModal('keagamaan')">
+                <div class="card-icon"><i class="fas fa-mosque"></i></div><div class="card-title">Keagamaan & Spiritual</div>
+                <p>Mengorganisir kegiatan ibadah dan kajian rutin.</p>
+                <div class="card-subtitle">Klik untuk lihat Proker & Tugas</div>
+            </div>
+            
+            <div class="structure-card" onclick="openProkerModal('pembinaan_karakter')">
+                <div class="card-icon"><i class="fas fa-brain"></i></div><div class="card-title">Pembinaan Karakter</div>
+                <p>Mengembangkan kepemimpinan dan budaya disiplin.</p>
+                <div class="card-subtitle">Klik untuk lihat Topoksi & Proker</div>
+            </div>
+            
+            <div class="structure-card" onclick="openProkerModal('olahraga_seni')">
+                <div class="card-icon"><i class="fas fa-futbol"></i></div><div class="card-title">Olahraga & Seni</div>
+                <p>Mengadakan kompetisi internal dan pentas seni.</p>
+                <div class="card-subtitle">Klik untuk lihat Proker & Jadwal</div>
+            </div>
+            
+            <div class="structure-card" onclick="openProkerModal('humas_sosial')">
+                <div class="card-icon"><i class="fas fa-handshake"></i></div><div class="card-title">Humas, Sosial Masyarakat & Komunikasi</div>
+                <p>Mengelola publikasi dan hubungan masyarakat sekolah.</p>
+                <div class="card-subtitle">Klik untuk lihat Proker & Tugas</div>
+            </div>
+            
+             <div class="structure-card" onclick="openProkerModal('lingkungan')">
+                <div class="card-icon"><i class="fas fa-leaf"></i></div><div class="card-title">Lingkungan Hidup</div>
+                <p>Menjamin kebersihan sekolah dan program penghijauan.</p>
+                <div class="card-subtitle">Klik untuk lihat Tugas & Proker</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="struktur" class="content-section">
+        <h2>Struktur Kepengurusan OSIS Berdasarkan Departemen</h2>
+        <p style="text-align: center; font-size: 1.2em; color: var(--primary-color);">**Klik pada setiap departemen untuk melihat daftar anggota detail (dengan animasi).**</p>
+        
+        <div class="structure-grid">
+            <div class="structure-card" onclick="openModalWithAnimation('inti')"><div class="card-icon"><i class="fas fa-crown"></i></div><div class="card-title">Inti OSIS</div><div class="card-subtitle">Ketua: Yamani & Wakil</div></div>
+            <div class="structure-card" onclick="openModalWithAnimation('kesiswaan')"><div class="card-icon"><i class="fas fa-users"></i></div><div class="card-title">Departemen Kesiswaan</div><div class="card-subtitle">Ketua: Muhammad ikhsan</div></div>
+            <div class="structure-card" onclick="openModalWithAnimation('keagamaan')"><div class="card-icon"><i class="fas fa-quran"></i></div><div class="card-title">Departemen Keagamaan</div><div class="card-subtitle">Ketua: Nur Anisa</div></div>
+            <div class="structure-card" onclick="openModalWithAnimation('pembinaan_karakter')"><div class="card-icon"><i class="fas fa-lightbulb"></i></div><div class="card-title">Departemen Pembinaan Karakter</div><div class="card-subtitle">Ketua: Nor aina Azzahra</div></div>
+            <div class="structure-card" onclick="openModalWithAnimation('olahraga_seni')"><div class="card-icon"><i class="fas fa-medal"></i></div><div class="card-title">Departemen Olahraga dan Seni</div><div class="card-subtitle">Ketua: Fahrul</div></div>
+            <div class="structure-card" onclick="openModalWithAnimation('humas_sosial')"><div class="card-icon"><i class="fas fa-bullhorn"></i></div><div class="card-title">Departemen Humas Sosial Masy. & Komunikasi</div><div class="card-subtitle">Ketua: Muhammad wafa</div></div>
+            <div class="structure-card" onclick="openModalWithAnimation('sosial_kemasyarakatan')"><div class="card-icon"><i class="fas fa-hands-helping"></i></div><div class="card-title">Kegiatan Sosial dan Kemasyarakatan</div><div class="card-subtitle">Ketua: Akhmad risky</div></div>
+             <div class="structure-card" onclick="openModalWithAnimation('lingkungan')"><div class="card-icon"><i class="fas fa-tree"></i></div><div class="card-title">Departemen Lingkungan Hidup</div><div class="card-subtitle">Proker Tersedia</div></div>
+        </div>
+    </section>
+
+    <section id="dokumentasi" class="content-section">
+        <h2>Galeri Kegiatan OSIS (Siap untuk 50 Foto)</h2>
+        <p style="text-align: center; font-style: italic;">Ruang ini sudah dipersiapkan untuk menampung hingga 50 foto kegiatan OSIS Anda. Ganti file `placeholder-X.jpg` di folder `images/` dengan gambar nyata.</p>
+
+        <div class="documentation-grid">
+            </div>
+    </section>
+    
+    <section id="kontak" class="content-section">
+        <h2>Layanan & Kontak</h2>
+        <p style="text-align: center; font-size: 1.2em;">Silakan hubungi kami untuk informasi lebih lanjut, pertanyaan, atau saran melalui layanan di bawah ini. Kami siap melayani!</p>
+        
+        <div class="contact-grid">
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <h3>Email Resmi</h3>
+                <p>osis.sekolahanda@mail.com</p>
+                <a href="mailto:osis.sekolahanda@mail.com" style="color: var(--primary-color);">Kirim Email</a>
+            </div>
+            
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <h3>Customer Service</h3>
+                <p>Nomor Kontak CS: 08xx-xxxx-xxxx</p>
+                <a href="tel:08xxxxxxxxxx" style="color: var(--primary-color);">Hubungi Sekarang</a>
+            </div>
+            
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Alamat Sekretariat</h3>
+                <p>Ruang Sekretariat OSIS, Gedung B Lantai 1, Sekolah Anda.</p>
+                <a href="#" style="color: var(--primary-color);">Lihat Lokasi (Placeholder)</a>
+            </div>
+        </div>
+        
+        <h3 style="text-align: center; margin-top: 50px;">Formulir Kontak Cepat (Placeholder)</h3>
+        <div style="max-width: 600px; margin: 0 auto; padding: 20px; background: #fff; border-radius: 10px; box-shadow: var(--shadow-light);">
+            <p>*(Anda dapat menempatkan formulir kontak HTML/PHP di sini)*</p>
+        </div>
+    </section>
+
+    <div id="memberModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('memberModal')">&times;</span>
+            <h3 id="memberModalTitle"></h3>
+            <ul id="modalMemberList" class="member-list"></ul>
+        </div>
+    </div>
+    
+    <div id="prokerModal" class="modal">
+        <div class="modal-content modal-content-proker">
+            <span class="close-button" onclick="closeModal('prokerModal')">&times;</span>
+            <h3 id="prokerModalTitle"></h3>
+            <div id="prokerDetailContent"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Organisasi Siswa Intra Sekolah (OSIS) SMKS Shalatiyah Bitin | &copy; 2025</p>
+        <p>Desain Responsif, Rapi, dan Memukau | Dibuat dengan Semangat Kepemimpinan</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
